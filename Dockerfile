@@ -5,7 +5,7 @@ LABEL name="CentOS Base Image for USC" \
     vendor="USC" \
     license="GPLv2" \
     build-date="$(date)"
-ENV USC_CENTOS_VERSION 7.3.1
+ENV USC_CENTOS_VERSION 7.4.1
 
 RUN cd /etc/yum.repos.d\
  && sed -i 's/mirrorlist/#mirrorlist/g' *\
