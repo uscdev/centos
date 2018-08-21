@@ -5,14 +5,15 @@ LABEL name="CentOS Base Image for USC" \
     vendor="USC" \
     license="GPLv2" \
     build-date="$(date)"
-ENV USC_CENTOS_VERSION 7.4.0
+ENV USC_CENTOS_VERSION 7.5.0
 
-RUN cd /etc/yum.repos.d\
- && sed -i 's/mirrorlist/#mirrorlist/g' *\
- &&  sed -i 's/#baseurl/baseurl/g' *\
- &&  sed -i 's/mirror.centos.org/mirrors.usc.edu\/pub\/linux\/distributions/g' *\
- && cd\
- && echo "USC Centos Version: ${USC_CENTOS_VERSION} Built: $(date)" >> /usccentos.txt
+# RUN cd /etc/yum.repos.d\
+#  && sed -i 's/mirrorlist/#mirrorlist/g' *\
+#  &&  sed -i 's/#baseurl/baseurl/g' *\
+#  &&  sed -i 's/mirror.centos.org/mirrors.usc.edu\/pub\/linux\/distributions/g' *\
+#  && cd\
+#  && echo "USC Centos Version: ${USC_CENTOS_VERSION} Built: $(date)" >> /usccentos.txt
+RUN echo "USC Centos Version: ${USC_CENTOS_VERSION} Built: $(date)" >> /usccentos.txt
 
 RUN yum -y update\
  && yum -y upgrade\
